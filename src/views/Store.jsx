@@ -36,3 +36,37 @@ const addUpdate = (items, action) => {
         }
     }
 }
+const add = 3;
+
+export const Store = () => {
+    const [items, dispatch] = useReducer(addUpdate, someItems)
+
+    const addItem = (text) => {
+        dispatch({
+            type: 'added',
+            id: add + 1, 
+            text
+        })
+    }
+    const updateItem = (task) => {
+        dispatch ({ 
+            type: 'updated', 
+            task
+        })
+    }
+    const deleteItem = (taskId) => {
+        dispatch({ 
+            type: 'deleted', 
+            id: taskId 
+        })
+    
+}
+
+return (
+    <>
+        <h1>Shopping List</h1>
+        <ToCart onAddItem={addItem}/>
+        <ShoppingCart items={items} onChangeItem={updateItem} onDeleteItem={deleteItem} />
+    </>
+)
+}

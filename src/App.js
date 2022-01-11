@@ -1,10 +1,11 @@
 
 import './App.css';
+import { Store } from './views/Store';
 
 function App() {
   return (
     <div className="App">
-     
+     <Store />
     </div>
   );
 }
